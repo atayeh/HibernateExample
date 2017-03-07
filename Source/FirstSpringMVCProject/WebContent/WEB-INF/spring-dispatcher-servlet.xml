@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+  
+ 
+ <!--  Each section convey information to the FrontController (Servlet-Dispatcher) -->
+ 
+ <!--  there are many HandlerMapping classes defined by the Spring MVC, this is the basic one
+ 
+  -->
+ <bean	id="HandlerMapping"  class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+ 
+<!--  if the user asks for the welcome page, using the previously
+defined HandlerMapping, the FrontController will invoke "HelloController"
+
+ -->	
+ <bean name="/welcome.html" class="com.gontuseries.hellocontroller.HelloController" />
+ 
+ 
+ <bean id="viewResolver"
+    	class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+        <property name="prefix">
+            <value>/WEB-INF/</value>
+        </property>
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+ </bean>
+ 
+
+</beans>
